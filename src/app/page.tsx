@@ -39,7 +39,7 @@ export default function Home() {
 
       if (!geoData.results || geoData.results.length === 0) {
         setModalOpen(true);
-        throw new Error("City not found.");
+        throw new Error("Ciudad no encontrada");
       }
 
       const { latitude, longitude } = geoData.results[0];
@@ -72,7 +72,7 @@ export default function Home() {
     <div className="mt-[70px] flex flex-col items-center gap-4">
       <input
         type="text"
-        placeholder="Enter city name"
+        placeholder="Poner ciudad"
         value={city}
         onChange={(e) => setCity(e.target.value)}
         className="text-black border p-2 rounded-md"
@@ -82,7 +82,7 @@ export default function Home() {
         disabled={loading}
         className="bg-blue-500 text-white px-4 py-2 rounded-md disabled:opacity-50"
       >
-        {loading ? "Loading..." : "Get Weather"}
+        {loading ? "Cargando..." : "Da la temperatura"}
       </button>
 
       <div className="mt-4 grid lg:grid-cols-3 gap-4">
@@ -99,13 +99,13 @@ export default function Home() {
               <div className="flex items-center justify-center">
                 <div>
                   <p>
-                    <strong>Temperature:</strong> {data.temperature}°C
+                    <strong>Temperatura:</strong> {data.temperature}°C
                   </p>
                   <p>
-                    <strong>Wind Speed:</strong> {data.windspeed} km/h
+                    <strong>Velocidad de viento:</strong> {data.windspeed} km/h
                   </p>
                   <p>
-                    <strong>Time:</strong> {data.time}
+                    <strong>Tiempo:</strong> {data.time}
                   </p>
                 </div>
               </div>
@@ -118,7 +118,7 @@ export default function Home() {
         <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center">
           <div className="flex justify-content items-center bg-white w-[400px] h-[200px] p-6 rounded-lg shadow-lg">
             <div className="text-center">
-              <p className="text-lg font-semibold text-black">No city was found.</p>
+              <p className="text-lg font-semibold text-black">La ciudad no fue encontrada</p>
               <button
                 onClick={() => setModalOpen(false)}
                 className="mt-4 bg-blue-500 text-white px-4 py-2 rounded-md"
